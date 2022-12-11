@@ -1,0 +1,195 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Atlantis VIP",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#invalids"
+		},
+		{
+			"include": "#constants"
+		},
+		{
+			"include": "#entitys"
+		},
+		{
+			"include": "#metas"
+		},
+		{
+			"include": "#galtables"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.control.vip",
+					"match": "\\b(?i)(_doFinally|_except|_finally|_noExcept|_raise|_reRaise|_retry|_skipFinally|_try|accelerate|all|and|applying|array|as|begin|bitmapIco|blank|bounds|break|browse|build|by|case|charset|condition|const|continue|create|current|default|delete|div|do|doAccept|dot|else|end|(end(?:.))|escClose|exception|exclusive|exit|filler|for|free|from|handleEvent|horizontal|if|ImageDisplayMode|ImageMargin|inGroup|inherited|insert|interface|is|landscape|length|licensed|margin|mod|modifier|name|noMessage|noProtect|normal|not|of|offset|on|open|or|order|overwrite|pa3|pa4|panel|parameters|pass|pCustom|portrait|protect|prototype|pushPosition|readOnly|root|screen|select|separator|set|shl|show|shr|skip|skipe|sql|sql_loop|synonym|table|then|thousand|upcase|update|var|view|where|while|window|xor)\\b"
+				},
+				{
+					"name": "keyword.control.vip",
+					"match": "\\b(?i)(declare|define|elif|elifdef|elifndef|else|end|error|hint|if|ifdef|ifndef|include|info|undef|warning|make|statusline|version|addcomponent|commands|component|doc|docl|project|setCurEnv|storeFcConsts|writeto)\\b"
+					,"comment": "need add #"
+				},
+				{
+					"name": "keyword.control.vip",
+					"match": "\\b(?i)(__COMPONENT__|__COPYRIGHT__|__DATE__|__DATETIME__|__DEFINED__|__EVALUATE__|__FILE__|__INTERFACENAME__|__LINE__|__TIME__|__TOOLVER__|__TOOLVERSION__)\\b"
+					,"comment": "need add #"
+				},
+				{
+					"name": "keyword.control.vip",
+					"match": "\\b(?i)(__UNUSED__|errorLevel|iconName|meta|GetMetaInfo|param|params|read|write|index|datastream)\\b"
+					,"comment": "need add #"
+				},
+				{
+					"name": "keyword.control.vip",
+					"match": "#"
+					,"comment": "for adding #"
+				},
+				{
+					"name": "keyword.control.vip",
+					"match": "\\b(?i)(cast|buffer|bufferp|public|private|type|const|web|objInterface|forward|deprecated|property|out|duplic|unique|upcase|noUpcase|asc|desc)\\b"
+				},
+				{
+					"name": "keyword.control.vip",
+					"match": "\\b(?i)(leftJoin|rightJoin|noJoin)\\b"
+				},
+				{
+					"name": "keyword.control.vip",
+					"match": "\\b(?i)(struct|into)\\b"
+					,"comment": "Andrei Fomichev added for a whole imaginationg this code."
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quote.single.vip",
+			"begin": "'",
+			"end": "'",
+			"patterns": [
+				{
+					"name": "constant.character.escape.vip",
+					"match": "\\\\."
+				}
+			]
+		},
+		"comments":{
+			"patterns": [
+				{
+					"name": "comment.line.double-slash.vip",
+					"match": "(//).*$\\n?"
+				},
+				{
+					"name": "comment.line.vip",
+					"match": "^!.*$\\n?"
+				},
+				{
+					"name": "comment.block.vip.comments",
+					"begin": "/\\*",
+					"end": "\\*/"
+				}
+			]
+		},
+		"invalids": {
+			"patterns": [
+				{
+					"name": "invalid.illegal.vip",
+					"match": "(?i)(gal_vek\\.|\\.f|sysdate|to_oradate)"
+				}
+			]
+		},
+		"constants":{
+			"patterns": [
+				{
+					"name": "constant.numeric",
+					"match": "(\\s+|^)\\d+[.]?\\d*(\\s+|$|(?=;))"
+				},
+				{
+					"name": "constant.language",
+					"match": "\\b(?i)(true|false)\\b"
+				}
+			]
+		},
+		"entitys":{
+			"patterns": [
+				{
+					"name": "entity.name.function.vip",
+					"match": "\\b(?i)(procedure|function)\\b\\s+(\\w+(?:\\.\\w+)?)\\s*"
+				},
+				{
+					"name": "entity.name.function.vip",
+					"match": "\\w+(?=\\((.*)\\))"
+				},
+				{
+					"name": "entity.name.type.vip",
+					"match": "\\b(?:\\:)(?i)(byte|word|integer|longInt|comp|single|double|number|numeric|decimal|single|money|lVar|boolean|logical|char|wideChar|string|wideString|date|time|_DateTime|variant|positionHandle|void)\\b"
+				},
+				{
+					"name": "entity.name.type.vip",
+					"match": "\\b(?i)(record|record as table|x$position|type$)\\b"
+					,"comment": "idk where it should be"
+				}
+			]
+		},
+		"metas": {
+			"patterns": [
+				{
+					"name": "meta.type.name",
+					"math": "\\b(?i)(procedure|function)\\b\\s+(\\w+(?:\\.\\w+)?)\\s*"
+				}
+			]
+		},
+		"galtables": {
+			"patterns": [
+				{
+					"name": "keyword.other.VIP",
+					"match": "\\b(?i)(ABC2GESN|AbonentGroups|AbonentLogTables|AbonentQueryGroup|Abonents|AboutFio|ActCateg|ActDisc|ActEducations|Action|ActionCon|ActiveModules|ActPDate|ActPeriod|ActPerRaspr|ActSaldo|Act_AP|Act_FinDoc|AddInf|AddPens|AddPickR|AddPsn|Address|ADDRESSN|AddSumObj|AddSumTune|ADocTip|Adver|AdverDir|AdverSrv|Advert|AdvFeatures|Advises|AFormMC|AFplanSYS|AFplanSYSZ|AGGREGATE|AkcizHInOutcome|AkcizHRequest|AkcizKatForm|AkcizSpInOutcome|AkcizSpRequest|AktOFP|AktPerf|AktSost|AktSrc|AktSum|AktSver|AlgCalc|AlgCalcPrm|AlgCalcPrmCL|AlgCalcPrmLV|AlgCalcPrmV|AlgCalcPrmVLR|AlgCalcTmpl|AlgGr|AlgPer|AlgRazn|AlimentV|AllAnRel|AllDouble|ALLindex|AllInteger|AllList|AllMemo|AllocZtr|AllStr|AllTxRp|AllVacCon|ALT_NAME|AmNomen|Amort|Analitik|AnalPred|AnalSxem|AnKauND|AnKauNS|AnRelation|AnRelCache|AnSchNew|Answer|AObjRights|APlan|AplanAccess|APlanMem|AplanStr|AplanUsers|APLockTable|Appeal|Appendix|APPeriodFin|AppEvent|AppEventExt|AppHist|ApplDocs|Appointments|AppRecruit|APProcess|AppVeks|AP_Res|AqaCheckFuncs|AqaCheckPoints|AqaCheckRef|AqaFieldList|AqaInterfaceList|AqaPlanRef|AqaPlans|AqaScriptSrc|AqaSegments|AqaTests|ARBL|ArcCostOs|ArcExClassVal|ArcGoods|ArchRates|ARCIZNOS|ArcOsMc|ArhKUTp|ArhKUTr|ArhPerex|ArOtpusk|ArToDcVi|ArxShtrf|ArxTar|ASRFITTBL|ASRHEAD|ASRHJOUR|ASRKATVAR|ASRRECORDS|ASRSJOUR|AssignRes|AsupMemo|ATiDK|Attestation|AttrCat|AttrDog|Attribut|AttrKatMC|AttrNam|AttrRTXO|AttrVal|AutoDoc|Aval|AvtoPut|AvtoVed)\\b"
+				},
+				{
+					"name": "keyword.other.VIP",
+					"match": "\\b(?i)(Badge|BadgeDays|BadRecords|BalansF|BalansM|BalCuts|BankDocF|BankNOper|BankStat|Bargain|Barter|BaseDoc|BaseDocRem|BaseFin|BazCalc|BazDist|BazeZatr|BazRas|BDocName|BGarant|BG_Operation|BG_OperChange|BG_Spec|BIGHEAP|BillObor|BlankBln|BLISNET|BOMConfig|BOMObjPotr|BOMObjTree|BookPrZk|BookSB|BOR|BOR_P|BOR_R|BoxIer|Brigad|Brigada|BrWork|Budjet|BuhGateOper|BuhgCon|BuhgTune|BuhRep|BuhSchet|BuildObj|Build_Rt|BusiRole|BuyKassa|BWPCard|ByWorker)\\b"
+				},
+				{
+					"name": "keyword.other.VIP",
+					"match": "\\b(?i)(CAgent|CalcAver|CalcFull|CalcFZAv|CalcObj|CalcParm|CalcPred|CalcProd|Calendar|CalPlan|CapPr|CapPrQT|CardSN|CasePsn|CashBank|Catalogs|CatalPSD|CatArch|CatHist|CatIer|CatLinks|CatStrPr|CellVal|CESDoc|CESMTResChgLog|CESPosChgLog|CFO_Req|Chanels|ChangeTableStruct|ChanGoods|CheckArc|CheckPln|CHECKS|Child|ChildBenefit|ChildLgot|ChildOne|ChildOpl|ChildVoz|Claim|Claimant|ClAnCat|ClasDef|ClasDisc|ClassBuh|ClassObj|Clearing|Client|ClipPlan|CloseAcc|CloseAccAtr|CloseAccRef|CnGPrice|CnUPrice|CodNameCat|COFilial|Colos|ColPresen|ComHistory|Communications|CompetCon|CompetencePers|CompetencePost|CompetenceSE|CompetenceStaffStr|Compon|ComponentModules|Components|ComponentUsers|ComponPF|ConcGood|Concur|Concurnt|ConcUtil|Config|Conflict|ConGoods|ConnectInq|Conscription|ConsVal|Contact|Contacts|ContDoc|ContInt|ContKAU|ContourComponents|ContourEvents|Contours|ContPers|ControlActivity|ConUtils|Convers|ConvZ|CopyNeNa|CopyPer|CopySOP|CopySUD|CorFact|CorLst|CorpoSemafors|Corr|CostOs|CountCMP|COUNTRY|CredCard|CritComp|CritMod|crmGoods|crmPersons|CurLS|CurLS1|CurLschet|CurMonth|CurRep|CursVal|CustLic|Customer)\\b"
+				},
+				{
+					"name": "keyword.other.VIP",
+					"match": "\\b(?i)(d$Relate|DanPLZ|Data130|DayUch|DayUch51|DeCodeRt|DefBelong|Dej|Delivery|DeliveryRep|DelRaise|DelRaiseHist|DeltaVal|DepAPFin|DepFunc|DeponKart|DepPeriodFin|Details|DetPlanOtpusk|DetTest|DiaAcceptanceCertMD|DiaAddress|DiaBox|DiaContractMD|DiaCounteragent|DiaCustomData|DiaDepartment|DiaDocsToSend|DiaDocument|DiaDraftToMessage|DiaEntity|DiaEntityPatch|DiaEvent|DiaForwardDocEvent|Diagram|DiaInitialDocId|DiaInvoiceCorMD|DiaInvoiceCorRevMD|DiaInvoiceMD|DiaInvoiceRevMD|DiaMemoToSend|DiaMessage|DiaMessagePatch|DiaMessageToSend|DiaOrganization|DiaOrgUser|DiaPacket|DiaPriceListMD|DiaProformaInvoiceMD|DiaReconciliationAct|DiaRelations|DiaResolutionStatus|Diary130|DiaSubordinateDocId|DiaSuppAgreementMD|DiaSyncMCUsl|DiaSyncOtpEd|DiaTorg12MD|DiaTorg13MD|DiaUPDCorMD|DiaUPDCorRevMD|DiaUPDMD|DiaUPDRevMD|DiaUserSelDep|DiaXmlAccCertMD|DiaXmlTorg12MD|Diler|DirectInvest|Disease|DistDoc|DistDocHierarchy|Doc2Doc|DocBelong|DocBudItem|DocCont|DocDPved|DocFilterField|DocFilters|DocGMrk|DocInfo|DocMarPr|DocNastr|DocNastrRAnProd|DocObrPnkt|DocPereoc|DocPLved|DocPodot|DocPodotchet|DocPSD|DocRef|DocRem|DocRemArch|DocRemGr|DocReq|DocsBal|DocSchem|DocsKau|DocSortT|DocSver|DocsZatr|DocsZatrEx|DocTestProtocol|DocToKut|DocToPak|DocType|DogArx|DogMail|Dogovor|DogPodr|DogProvision|DogRelat|DogStroy|DohSkid|DolgCuts|DOlS|DopFlds|DopInfo|Doplata|DopNAL|DopNal2|DopNap|DopNap2|DOprZak|DoPS|DopStBud|DopTables|DopZBudj|DOP_FOT|DOres|Dover|DovFIO|DPartyDS|DP_Alternative|DragIer|DsGotPr|DsIO|DsNastr|DsNorm|DvigTara|DvSogl|DvTaraAr|DWConfig|DWJobs|DWJournal|DWMemo|DWMonitor|DWQueues|DWTasks|Education|EIDataType|EIDir|EIDirRec|EIExpSet|EIExpSetDT|EIExpSetDTE|EIExpSetDTO|EIExpSetDTR|EIImpSet|EIImpSetDT|EIImpSetDTE|EIImpSetDTF|EIImpSetDTFV|EIImpSetDTI|EIProtocol|EIProtRec|ElDiagram|Elements|ElementsRights|ElToDcVi|ElToElVi|EnterpriseDBList|EnterpriseTableList|EntitySet|EqGroup|EqNorm|EstBarg|EstSales|EventItem|EventLine|Events|EvJoiHead|ExClassIer|ExClassName|ExClassSeg|ExClassVal|Executor|ExImBack|ExImBackR|ExImChng|ExImDBF|ExImExpr|ExImFilt|ExImFld|ExImHead|ExImLog|ExImLogE|ExImLogR|ExImLogT|ExImNast|ExImRef|ExpComp|Experience|Expert|ExpImpMD|ExpImpPR|ExpImpPR_Sp|ExpImpRT|ExplicitValue|ExpObj|ExpObjM|ExpSet|ExpSetDT|ExpSetDTO|ExpSetMD|ExpSetRT|ExpXMLCh|ExtCatLinks|ExtCU|ExternalASM|ExtSopr|ExtTuneCU)\\b"
+				},
+				{
+					"name": "keyword.other.VIP",
+					"match": "\\b(?i)(FactorsTest|FactOtpusk|FAImport|FAImpTune|FarInfo|FarLink|FCCURRENCY|FCFPLAN|Features|FeedStockV|FiasSprav|FieldsRights|FieldView|Filial|FilialObjects|FilialRights|Filials|FiltAn|FilterPerson|FilterPodr|FilVeksl|FindDocsSpBS|FinderTempl|FinDoc|FindOrgInDB|FldLinks|FondOtp|Form11|Form130|ForMarks|FormBody|FormEx|FormFplan|FormIer|FormKL|FormPl|FormPlace|FormPrLs|FormsDef|FormSobs|FormSum|Formula|Formulas|Formuls|ForPrint|ForStr|Fortune|FOT|FOT_Blisnet|FOT_cfo|FOT_Otpusk|FOT_pers|FOT_pers_opl|FOT_podr|FOT_Raspr|FOT_Rights|FOT_SpRasprFrom|FOT_SpRasprTo|FOT_stage|FOT_WTable|FOT_WTable_Pers|FOT_Zar|FO_Data|FpAddFld|FpArea|FpAreaDescr|FpAreaMask|FpAreaVariant|fpAttVal|fpAxRel|fpAxTF|fpBatch|FpBudAn|fpBudget|FPBudOUT|FpBudProcces|fpBudProt|fpBudVar|FpBudVarDescr|FpCmpColTune|fpCmpTune|fpCO|fpCOMR|FpCorDoc|FpCorItem|fpCOTemp|FpEntFld|fpForecast|fpGrTemp|fpGrTF|fpHier|FpIEBodyFld|FpIEDoc|FpIEHeadFld|FpIETempl|fpImpKau|fpImpRel|fpInfo|fpITune|fpKatImp|fpKAUTF|fpKoeff|FPlan|FpLimDMAlg|FpLimDMKAU|fpLimPlan|FpLimProt|FpLimTNote|FpLimTune|FpLockData|FpLTAnRule|FpLTBData|FpLTDocStat|FpLTFilter|FpLTFltItm|FpLTFltPos|FpLTRule|fpMeanTF|FpModulAdmin|fpMRasp|fpMRTune|FpObor|fpOborot|fpObTmp|fpOrgBud|fpPeriod|fpRasp|fpRaspR|FpRaspSpBS|fpRelOb|FpSchem|fpSlojTF|fpSpAttr|fpSpAxTF|fpSpBat|fpSpMR|fpSpTemp|FpSpTypoTPer|fpState|fpStBud|fpStd|fpTDRelOb|fpTemp|fpTForm|fpTmpKat|fpTPer|fpTPod|fpTune|FpTypoTPer|fpValRasp|fpValues|fpVApprov|fpVarian|FreeTabNmb|Frml|FromTables|FSetLoc|FSSInfo|FuncStr|FuturePost|GetSaldo|GoalCon|GoalTeach|GoNewPer|GoodCorr|GoodMdia|Goods|GPSFuelTrans|GPSPoint|GPSPosition|GPSSensor|GPSWayBill|GPSWayPoint|GradKTY|GraficV|Grafik|GrafKred|GRAFREM|GrCO|GrDescr|GrFlAn|GrifSroc|GrIndex|GrMovCel|GrNal|GROBJ|GrOper|GrOS|GroupEU|Grouping|GroupMC|GroupNormCollection|GroupObPlm|GroupParty|GroupPKP|Groups|GroupSch|GroupSetting|GroupSettingPriority|GroupSFO|GroupsList|GroupTables|GroupTeach|GroupTheme|GroupUsers|GroupUsl|GrPlat|GrPodr|GrPrice|GrpState|GrRepPl|GrSDoc|GrSloj|GrSopr|Grup_RAB|Gruzak|GSMalg|GSM_kof)\\b"
+				},
+				{
+					"name": "keyword.other.VIP",
+					"match": "\\b(?i)(HashAn|HdrPSRAnProd|HDR_PS|HealthDr|HelpTabN|HierDescr|HierTune|HierView|HierZar|Hire|Hist|HistCompetence|HistInq|HistorTc|HistoryAttach|HistoryAttr|HistoryEvent|HistoryK|HistoryStr|HistPlan|HistPlanOtp|HistSp|HistZam|House|HozForm|HozObor|HozOper|HozPrihod|IDNAVT|IeHead|IeHFlds|IeIncFld|IEJournalAttr|IEJournalNode|IEJournalRoot|IeLog|IeLogLst|IENastrAttr|IENastrNode|IENastrRelate|IENastrRoot|IerCalPl|IerDog|IerGrPL|IerGrSch|IerSortMC|IerStatMC|IerStroy|IeSFlds|IGK|ImpObj|ImportDataOptions|ImpTune|InBoxP|IncomNew|Indeks|Indent|Indicate|IndicDop|IndName|IndValue|InfMnfEq|InfMnPdr|InfoForAbonents|InfoPK|InfoTime|InfPsn1|InfPsn2|InfPsn3|InMaskGo|Inquirer|InsNorm|InsRem|Insurance|IntClass|IntClNam|IntClSeg|IntClSts|Interest|InterfaceParams|Interviewers|Interviews|IntrName|InvDocument|InvTab|IoNorm|Iski|IskOpl|IskOtgr|IskPlan|IspDoc|IspList|IspOS|ISPREM|ItemFlAn|IterKolm)\\b"
+				},
+				{
+					"name": "keyword.other.VIP",
+					"match": "\\b(?i)(JobConfig|JobNorm|JobPattern|JobQualifier|JobRem|JobTarf|JobTarif|JoiHead|JornTune|JOURDEF|JOURDEFR|JournOtgr|JournProbPosDoc|JOUROBJ|KaBor|KachvoEx|KaElem|KaGObr|KaNorm|KaOfficers|KaReason|KaRet|KartOC8|KasOtd|KaSpPart|KassaCFG|KatAbbr|KatAnRel|KatApplCand|KatB|KatBank|KatBazeZatr|KatBox|KatCity|KatCompl|KatCont|KatCUsl|KatDef|KatDoc|KatDopEd|KatDrag|KatDSNor|KaTech|KatED|Kateg13|KategoV|KatExpr|KatForm|KatGrWood|KatKassa|KatKau|KatKauPlan|KatKeys|KatKlass|KatKod|KatKompl|KatLimit|KatLine|KatLink|KatLinkA|KATMARK|KatMarsh|KatMarshRAnProd|KatMBP|KatMC|KATMGTS|KatMOL|KatNacen|KatNalGr|KatNalog|KatNazna|KatND|KatNotes|KaTOp|KatOrg|KatOrgDescr|KatOS|KatOSier|KatOTP|KatOtpEd|KatPar|KatParty|KatPayment|KatPlace|KatPlan|KatPodr|KatPodrTNF|KatPokaz|KatPost|KatPotreb|KaTppDoc|KATPRICH|KatProiz|KatPrSkl|KatPurpose|KatRelTD|KatRole|KatRTex|KatSkid|KatSmet|KatSmetaKoeff|KatSmetaLimit|KatSopr|KatSort|KatSp|KatSpeed|KatState|KatStats|KatStd|KatStroy|KatStrZ|KatSvidReg|KatTar|KatTexN|KatTmpJnl|KatUsl|KatVarPl|KatVidD|KatWFond|KatZak|KauCuts|KauGroup|KauKode|KauReff|KauRepl|KaWork|KindPlan|KindVagon|KitKau|KLAlg|KlassIer|KlassOs|KLBLDCh|KlCart|KLChild|KLChild3|KLChild4|KLChildM|KLChildN|KLFilTer|KLincom|KLKassir|KLKatego|KLKategS|KLKategV|KLLisNet|KLMamaN|KLNaim|KLNalog|KLNDR|KLNDR1|KLOtpusk|KLPerOpl|KLPostPr|KLPrice|KlProg|KlProv|KLPrPer|KLRABRES|KLRejim|KLResHr|KLShLg|KLShtraf|KLSisOpl|KLskid|KLSkidka|KLSovm|KLTGrDop|KLUder|KlUdOpl|KlVal|KLVidOpl|KlVidPos|KLVidUd|KLVxod|KnDriver|KodHeap|KodOF|KoefChange|Koeff4Act|KoefPodr|KoffEU|KolDog|KolGroupm|KolMC|KomUd|KonstrResh|KontraS|KontrBal|KontrIer|KontrVid|KorValue|KOtchet|KPN_Hdr|KPN_Marsh|KPN_Obj|KPN_PdO|KPN_Podr|KPN_Prm|KPN_PrmC|KPN_PrmCAn|KPN_PrmCV|KPN_PrmRAn|KPN_Sp|KPN_TmO|KTOBJREM|KtSaldAr|KtSaldo|KURREM|KutOstat|KvlUrAv|Lang|Language|LastNumD|LDocImp|Legend|LegTips|LFilters|LgNalLsZ|LgNalZ|LikvidOs|LimDoc|Limit130|LimOstm|LimSopr|LimTmp|LimZamm|LimZapE|LimZapH|LimZapL|LineNorm|LinkApplStaff|LinkAppPlan|LinkCol|LinkedNormDocs|LinkFormKatAppl|LinkIzm|LinkJobRes2MCUsl|LinkOperm|LinkOpr|LinkQualifier2Zatr|LinkSopr|LinksZak|LinkTab|LinkWithAbonents|LinkWithSpSchem|ListCard|ListGD|ListGood|ListOperm|ListPar|ListSogl|ListTbl|LnZakSum|LockedUsers|LogAttrMC|LogExpressions|LogTableConditions|LogTableRelate|LogTables|LOrgImp|LOrgPodr|Lots|LSchet|LSTab|LsTabDays|LsTabMsk)\\b"
+				},
+				{
+					"name": "keyword.other.VIP",
+					"match": "\\b(?i)(MagOper|MailTmpl|Mail_Descr|Mail_History|Mail_Memo|Mail_Person|Mail_Queue|Mail_Template|MakeRes|Managers|ManufIO|MappingKey|MarAvt|MarComp|Marka|MarkDoc|MarkDPar|MarkGood|MarKomp|MarkPay|MarkUtil|MarPunkt|MarRel|MarShin|MarshPos|MarshSpUCondRec|MarshSpUCROpd2LV|MarshSp_Ext|Marsh_sp|MarToUsr|MaskData|MaskICN|MaskMC|MaskSet|MaskTune|MaskUsl|Mask_Req|MasterKey|MaxFZP|MAXREM|MBPIn|MBPInv|MBPInvDet|MBPMove|MBPOper|MBPOut|MBPSpis|MBPWrite|MCatPodrTmp|MCkoffEU|MDACell|MDACellAn|MDACellOPV|MDACellV|MDACln|MDAClnAn|MDAClnOPV|MDADoc|MDADocAn|MDADocOPV|MDADocType|MDAObjRlt|MDAObjRltPV|MDAObjRltT|MDAObjRltTPV|MDAOptProp|MDAOptPropLV|MDAStr|MDAStrAn|MDAStrOPV|MDATbl|MDATblAn|MDATblOPV|MDATmplDoc|MDATmplDocCS|MDATmplDocCVL|MDATmplDocLFA|MDATmplDocOP|MDATmplDocRAnC|MDATmplDocRAnH|MDATmplTbl|MDATmplTblLFA|MDATmplTblOP|MDATmplTblOPC|MDATmplTblOPS|MDATmplTblRAnC|MDATmplTblRAnH|MDATmplTblRAnS|MDATmplVLayer|MDATmplVLayerOP|MDAVLayer|Measures|MediaMrk|MemAlgor|MemoBuhRep|Memories|MemoTbl|MemVid|MESEType|MESEvent|MESGrp|MesMet|MESModel|MESNDoc|MesVip|MetLoad|MetMassa|MFilters|mForRep|MGCard|MGCInfo|Migrate|MilRanks|MinFZP|MinHelp|MinPFZP|MinPodar|MinProg|MinRazr|MinStav|MnAnal|MNastr|MnC|MnCChng|MnCell|MnCellAn|MnCellV|MnCellVPV|MnCGP|MnCln|MnClnAn|MnCNorm|MnCOV|MnCp_CE|MnCp_CO|MnCp_E|MnCp_EO|MnCp_Hdr|MnCp_O|MnCp_Sp|MnDoc|MnDocAn|MnDocAnC|MnDocAnC_L|MnDocAnH|MnDocPV|MnDocTmpl|MnDocTmplDP|MnDocTmplLFA|MnDocTmplRAnC|MnDocTmplRAnH|MnDocType|MnfCentre|MnfCntGroup|MnfCntLink|MnfCntRlt|MnfEquip|MnfGroup|MnfOper|MnfReady|MnfStrc|MnNastr|MnObjRlt|MnObjRltP|MnObjRltPP|MnObjRltPV|MnObjRltT|MnObjRltTPV|MnOtcht|MnOtcht2|MnPlan|MnPropByDoc|MnPropByDocV|MnPropByVal|MnPropByValV|MnRDist|MnRQual|MnSGP|MnSGPAgr|MnSklOst|MnSlit|MnSpAdd|MnStatusColor|MnStr|MnStrAn|MnTbl|MnTblAn|MnTblTmpl|MnTblTmplLFA|MnTblTmplRAnC|MnTblTmplRAnH|MnTblTmplRAnS|MnTekSld|MnValLayer|MnValLayerTmpl|MnValLayerTmplVP|MnVLayerColor|ModelOtpusk|ModelPLN|ModelSmeta|MOLREM|MoneyMov|Morale|MORLier|MouldAir|MouldDoc|MovCut|MoveCell|MoveLsc|MoveMC|MoveOS|MovePSD|MovePsn|MoveRz|MoveTake|MovLink|MovSaldo|MrkGoodC|MrkSales|MrkSd|MrkTmp1|MrkUtilC|MSDiller|MSetLaw|MtrAct|MTRKau|MultiPay|MyUsers|NaborSC|Nachisl|NachislMP|NachTmp|NacTmp|NacTmpP|NaimSoc|NaklRasx|NaklTmp|NalDrag|NalGrOS|NalogFin|NalPers|NalReestr|NalRegDc|NalRegSp|NalRegTt|NAlter|NarDop|Nastr|NastrOS|NASTRREP|NastrV|NaznDoc|NaznMC|NBSDoc|NBSIzm|NBSProd|NBSZam|NeedMats|NeNach|NGrOSBal|NodalData|NoNalMC|NOper|NoReceiveTables|NORMa|Normas|NormasUCondRec|NormasUCROpd2LV|Normas_Ext|NormCollection|NormDateSFO|NormGroupSFO|NormGrup|NormGSM|NormJob|NormMsl|NormNZP|NormPrmV|NormPrmVLR|NormRash|NORMREM|NormResource|NormSFO|NormTAn|NormTAnV|NormTMR|NormUb|NormValue|North|NoteBene|Notes|NPF|NPlat|NPunkts|NTblHdr|NTblKat|NTblVal|NumOfAny|NVariant|NZakaz|ObjAcct|ObjAdm|ObjAdmField|ObjBazeZatr|ObjField|ObjFilters|ObjIntr|ObjParam|ObjPatterns|ObjR2Doc|ObjRDef|OBJREM|ObjRemAttrNam|ObjRemAttrVal|ObjRemDescr|ObjRemDoc|ObjRemExl|ObjRemIer|ObjRemImp|ObjRemInd|ObjRemOS|ObjRemSp|ObjRemTuneDef|ObjRemTuneVal|ObjRgh|ObjRIndD|OBJRMEMO|OboKatalog|OborCfg|OborCfgCol|OborKau|Oborot|OborotCorrespTune|OborotNM|OborotRef|OborPick|OborPlm|OborStr|OborSub1|ObSldTmp|ObSubSch|ObValut|OCSAddDoc|OCSAddPos|OCSAddPosAn|OCSAddPosDGraph|OCSAddPosFName|OCSAFormDoc|OCSAFormPos|OCSAFormPosAn|OCSAFormPosDGraph|OCSAFormPosFName|OCSDoc|OCSPos|OCSPosAn|OCSPosAn_ChLog|OCSPosDGraph|OCSPosDGraph_ChLog|OCSPosFName|OCSPosFNameN_ChLog|OCSPosFNameO_ChLog|OCSPos_ChLog|OCSPos_ChLog_SC|OFPDays|OFPLimV|OFPModel|OFPPrihod|OFPProt|OfpRef|OFPSaldo|OFPSaldR|OKDP|OldOrg|OneOfDe|OneTimeBenefit|OOtchet|Operands|OperException|OperPeriod|OperPlan|OPERSALDO|OPInfo|OpLProf|OPOst|OrdBox|Org|OsAlg|OsChgPar|OsMc|OsMcMov|OsMcUsl|OsRazn|OsSpAlg|OstTopl|Otchets|OtData|OtGoProt|OtgOrder|OtherPeople|OthersToSend|OtklClnd|OtklGraf|OtMasks|OtpDop|OtPotz|OtpStav|Otpusk|Otrasl|OutMaskGo|OwnConcG|OwnConcU|OwnWorkFpCO|ParamFrm|Params|ParamVol|ParComp|ParLinkOpm|ParModel|ParPrice|Part130|PartDoc|Partner|PartyDS|PassDoc|Passports|PATDefs|PatternFields|Patterns|PayList|PaySchem|PckPrCUS|PD_Spec|PeakEntry|PensCtg|PenStaj|Perech|PereocNZS|Perevod|PerevodTek|Perexod|PeriodAP|PeriodFin|PeriodFinR|PeriodFinRep|PeriodName|PeriodsAtt|PerNoRem|PerOS|PersAnsw|PersBreak|PersCard|PersChil|PersDop|PersNorm|PersNormLink|Persons|PersonsTNF|PersPhon|PersPod|PersSFO|PersSpec|PersTest|PersVacation|PersVacationAlg|PFDOCS|PFormRe|PFormula|PFPACHK|PFSTAJ|Phones|Pick|PickEnum|PickMtr|PickOE|PickPlan|PickPric|PickRecE|PickRep|PickSmeta|PickVip|PickVip2|PickVip3|PickVip4|PickVip5|Plan|PlanApprov|PlanAtt|PlanAttr|PlanDocQuery|PlanDog|PlanEduc|PlanHier|Planinfo|PlanItem|PlanJob|PlanLimitOwn|PlanLimitPetrol|PlanMove|Planner|PlanningI|PlanNIOKR|PlanNIOKRDescr|PlanOtpusk|PlanOwnWork|PlanPays|PlanRecruit|PlanSlit|PlansSch|PlanStHist|PlanTO|PlanTree|PlanValue|PlanValueDetails|PlanVar|PlatDog|PlatVed|PlDgDist|PListTbl|PlPor|PlStroy|PlTune|PName|PnkObDat|PnkToMr|PnkToUsr|PodLgot|PodNAL1|PodNAL2|PodNAL3|PodNal4|PodNal6|PodNalS|Podotchet|PodrAttrHist|PodrIer|PodrInfo|PodrManager|PodrMark|PodrSxem|PokazIer|POSTMAT|PostPotr|Prazd|PredLink|PredOrg|PreMove|PreReal|Present|PrFoundation|PriceIndex|Prices|PrichOsm|PrichRem|Prikaz|PriorApp|Priority|PriorRasm|PRItTMP|PRItTMP1|PrKachvo|PrMemo|PrMonth|PrmStClc|PrNaryad|PrNCapPr|PrnNal|ProbTr|ProdAb|ProdPotr|ProdYear|Prof|Profile|ProfileLink|ProfTmp|Progrm|ProjLot|PropSpMn|Propusk|ProtPlan|ProVidOp|ProvisionDeposit|ProvKatStroys|ProvRec|PRPlan|PRPunkt|PrSb|PRSpPlan|PrStage|PrvEd|PrVidOpl|PrVidTmp|PrvTmp|PsdBook|PsdBookIer|PsdCorresp|PsdNakl|PsdRequest|PsdSections|PsdTZ|PSLinesUCondRec|PSLinesUCROpd2LV|PSLines_Ext|PsnForSend|PsnLinks|PsnRes|PS_Exec|PS_Lines|Punishments|PustData|PustoGr|PutGSM|PutLst|PutOld|PutVacation|PutVacCon|Put_ACY|Put_Man|PValue|QbMain|QPHead|QPLine|QPMove|QualMc|QualRole|QueryForGroup|QueryGroup|Question|QuSlit)\\b"
+				},
+				{
+					"name": "keyword.other.VIP",
+					"match": "\\b(?i)(RabDef|RailWay|Raise|RaiseAlg|RaiseAlg2|RaiseHist|RaiseStS|RaiseTbl|RarNorm|RasDop|RashDoc|RasOKOF|RasOper|RasOrd|RasPl|RasPlat|RaspSpBS|RaspSvedPetrolUsed|RaspSxem|RasShap|RasVsp|RasZtr|Ras_Ord|RateAdd|RateList|RazdSch|RazrSogl|Razuzl|RazuzlDv|rBlank|ReadySum|RealWrk|RecvSxem|ReePlDoc|ReePlPor|ReestrFields|ReestrImp|ReestrLines|ReestrList|ReFin|RefTable|RegDoc|RegimeChanges|RegMc|RegReceive|RegSends|RegTC|Reliefe|RelStorn|REMARXZ|REMARXZD|RemDef|RemKat|RemKatEx|RemKomp|RemKts|RemKtsIn|RemKtsOb|RemKtsSp|RemKtsVa|RemKtsZk|RemLst|RepActionParam|RepCDoc|RepColParams|RepCost|RepCPR|RepFormulae|RepGrLst|RepGrOne|RepGroup|RepGrSrt|RepHead|RepHSopr|RepLink|RepList|ReplKau|ReplPat|ReplTab|RepMove|RepNZP|RepObj|Report|REPORTDATA|ReposClassif|ReposIm|ReposPro|RepProd|RepSale|RepThemeClass|RepToUs|RepUnits|RepWork|ReqSFO|ResBuhRep|ResDate|ResFPPrice|ResHourEd|ResInfo|ResInfoM|ResIterm|ResLink|ResolDocsPattern|ResolGroup|ResolGroupPerson|ResolHistory|ResolPaternParams|ResolPattern|ResolProt|ResolStagePattern|Resolution|ResolutionStage|ResOtgr|ResourcePrice|Resourse|respond|ResPrice|ResRange|ResTrade|ResultHead|ResumeRt|RezKontr|RightRule|RightRuleObj|Rights|rLongList|rltAttrHist|rltAttrValues|rltBuildings|rltComPay|rltCustoms|rltFloors|rltHouses|rltImprovement|rltLinks|rltObjTree|rltPlaces|rltRents|rltRooms|rltSpRooms|rltZemCompl|RoleKAU|RoleMatrix|ROtg_R01|Routers|Routing|RPerenos|RPjorn|RPrice|rShortList|RstrPD|RsvAuto|RsvOper|RsvReg|RsvRules|RsvSpRul|RTEXREM|RTXO|RuleCode|RuleCodeZ|RuleField|rzDoc|rzKUTprih|rzKUTrash|rzOsn|rzRezerv|rzSpDoc|r_DocCirc|r_Graph|r_ModRole|r_ModSysDoc|r_ModSysProc|r_Module|r_Role|r_RoleRights|r_Route|r_SpDocCirc|r_SpRoute|r_SysDoc|r_SysProc|r_UserDoc|r_UserProc|r_Users|r_WorkPlace|SaldDay|SaldMnf|SaldMoun|Saldo130|SaldoAPRep|SaldoBL|SaldoBox|SaldoFnd|SaldoMC|SaldoNM|SaldoObj|SaldoRaz|SaldoRz|SaldRab|SaldTune|SaleChan|Sales|SalScale|SavePick|SaveVed|SaveVedD|Save_Drv|Save_rem|SavPrc|SbBan|SChanLin|SchFact|School|SchPere|ScWork|SDDocReq|SDoc|SDRes|Seal|SebFact|SebKAU|SectPlan|SecurityLevelClass|SEDDoc|SedDocAttribute|SeeSaldo|Selection|SelPicks|SertCat|Sertific|Sertify|ServerConflicts|ServerJournal|ServerReceive|ServerRouters|ServerSends|ServLen|ServStav|ServTret|Session|SetBill|SetTxRp|SetupVid|SFilters|SGenRep|ShabSmet|ShbUsl|Shb_Tar|ShedulerTasks|SheetAvt|Shifts|ShinaF|ShinaPos|ShinaTC|ShinPut|Shipment|ShKoef|ShNorm|SHR_Condition|SHR_Filter|SHR_FilterList|SHR_Formula|SHR_Memos|Shtraf|SI_COMMENTS|SI_COMMENTS2|SI_LOGREFERENCES|SI_LOGREFERENCES2|SI_OBJECTS|SI_OBJECTS2|SI_RELATE2|SI_XFIELDS2|SI_XFILES2|SI_XINDEXES2|Skidka|SkidNew|SkidPrim|SkidSum|SkidTf|SklOrder|SklOst|Sloj|SlProc|SlSubj|Smet|Smeta|SmetaAlg|SmetaFakt|SmetaKoeff|SmetaLimit|SmetaResurs|SmetaSpec|SmetaStroy|SmetaZatr|SmetDog|SmetPodr|SmetRazd|SmNaryad|SocLg|SocrBase|SoglVeks|Sootv|SoprBrig|SoprCalP|SoprDop|SoprHoz|SoprOrdA|SoprOrdB|SoprSpBrig|SortMC|SostBaz|SostDoc|SourceFinance|SovmVd|Sp130|SpActDis|SpActPerRaspr|SpAFMC|SpAllCon|SpAlloc|SpAllStaff|SpAmNom|SpAnRel|SpAPFin|SpAPP|SPartyDS|SpBalans|SpBankDocF|SpBankStat|SpBazeZatr|SpBill|SpBox|SpBrigada|SpBuhgT|SpBuhRep|SpCalcPr|SpCalend|SpCardSN|SpCash|SpCDoc|SpCES|SpCFO_Req|SpCheck|SpChkArc|SpCompl|SpCompPF|SpConfig|SpControlActivity|SpCurRep|SpCUsl|SpDeliveryRep|SpDepAPFin|SpDetail|SpDocInfo|SpDocNal|SpDocs|SpDocSmeta|SpDog|SpDopEd|SpDover|SpecCon|SpecMTR|SpecZatr|SpFinderTempl|SpForm|SpFormPk|SpFormPl|SpFormsD|SpFp|SpGoNewPer|SpGoods|SpGraf|SpGrCO|SpGrInd|SpGrNal|SpGroupPKP|SpGrPlat|SpGrPld|SpGrPodr|SpGrSch|SpGrStat|SpHier|SpInNum|SpInquirer|SpInvTab|SpisDejUm|SpIsk|SpisTest|SpJOI|SpJorn|SpKatOS|SpKatPr|SpKau|SpLimit|SpLimOstm|SpListGD|SpListSogl|SpLots|SpMask_CFO|SpMask_Req|SpMC|SpMetLoad|SpMigrate|SpMnBnd|SpMnBrief|SpMnPl|SpMnPlan|SpMnWide|SpModel|SpModelAlg|SpModelSmeta|SpMove|SpMoveOs|SpMSet|SpMtrAct|SpNabor|SpNaklR|SpNalGrOS|SpNeedMt|SpNGRBal|SpNZRasp|SpObjAcc|SpObjPar|SpOborCfg|SpOperPlan|SpOrder|SpOrg|SpOsMc|SpOSob|SpOsRazn|SPOSREM|SpOtgOrd|SpOtpEd|SpOwnWorkFpCO|SpPayList|SpPFPerc|SpPKP|SpPKPStage|SpPlan|SpPlannI|SpPlanOwnWork|SpPlanRecr|SpPlanT|SpPlBan|SpPlPor|SpPlTune|SpPlurAnswer|SpPlVed|SpPotreb|SpPotrebGr|SpPresen|SpPrik|SpPrikaz|SpProbe|SpProfile|SpPropusk|SpPrSkl|SpPsdNakl|SpQualMc|SpRasVsp|SpRasZtr|SpRateAdd|SpreadDS|SpReeImp|SpReplPat|SpRepOne|SpReqSFO|SpResult|SprPrice|SpRstrPD|SpSchem|SpSchf|SpScWork|SpSebKAU|SpSess|SpSetAn|SpSklad|SpSloj|SpSmet|SpSmeta|SpSogl|SpSopHoz|SpSopr|SpSortMC|SpSpLimOstm|SpSpObAc|SpStage|SpStatLink|SpStatMC|SpStBud|SpStep|SpStepRem|SpSumTune|SpSumTuneAlg|SpSvedPetrolUsed|SpSxemaRas|SpSxemOp|SpTabel|SpTagsKau|SpTaxDat|SpTheme|SpTRequest|SpTrPotr|SpUksArea|SpUsl|SpVedDepon|SpViewC|SpVKCompPF|SpVVSopr|SpVvStroy|SpWayAc|SpWork|SpWorkPl|SpZachetObyaz|SpZakaz|SpZakazM|SP_G_RAB|Sp_Nastr|SRazdSch|SrcRecruit|SrednZar|SredVZB|SReplKau|STActDS|StaffSet|StaffStruct|StafUser|Stag|Stag13|StatCalc|StatDoc|StateMC|StatHor|Statis|StatLink|StatLog|StatusEDO|StatUser|StatusMC|Stavka|StavkaVal|StavkaVer|StBudjet|StepDoc|StepRas|STerr|sTerrI|StFunc|StoimStruct|StopMove|StornTab|StorRep|StorSpis|StrCont|StrDop|STREETS|StrMemo|StrPart|StrTitle|StructSt|Str_RHist|StSeal|StShab|STSubj|StZatr|SubAPlan|Subject|SubTableRight|SumBudj|SUMDOG|SumMonth|SumsCalcPeriod|SumsPrevPlace|SumUdA|SumUdB|SUMULBUD|SUMULPRO|SumULSoc|SUMULTEC|SUMUPBUD|SUMUPPRO|SumUpSoc|SUMUPTEC|SumVidOp|SumVidUd|SuplGood|Suppl|Supplier|SvedPetrolUsed|SvodTmp|SvodZatr|SxemaRas|Syllabus|SyllabusCon|SynByLSchet|SysTable|SystemComponents|SysTran|Sys_Dog|Sys_MBF|Sys_Nar|Sys_Uder)\\b"
+				},
+				{
+					"name": "keyword.other.VIP",
+					"match": "\\b(?i)(TabAvto|TabHelp|TabLeafIR|TableDoc|TableMar|TableRights|TablesForJournal|TabVod|TActDS|TagsKau|TarifAv|TarifN|TarifVod|Tarrir|TarStav|TaskInfo|TaskLink|Tasks|Tasks_History|TaxAlg|TaxCldr|TaxDat|TaxGroup|TaxSchem|tBackG|tblFilter|TblPaket|TblPnkCn|TblPnkOb|TcGsm|TDooc|tDsIO|tDVDS|tDvDSDet|TeachRes|TechDoc|TechHdr|TechProc|TekBox|TekMC|TekSaldo|tempDb|TempDescr|TempDescr18|tempDO|tempDS|TempFin|TempGS|TempIer|tempKol|tempKr|tempKS|TemplateFields|Templates|Templets|tempMCd|tempMCk|TempMnfRep|TempNO|TempNO2|TempoImp|tempOP|tempPart|tempPlat|TempRazn|TempRCons|TempRO|tempSNT|tempSoprD|tempSoprK|TempSpec|TempSved|TempTXO|tempVSD|tempVSK|TexSup|Theme|ThemeExClass|thPlatInc|thSpPlatIncIsp|thSpPlatIncOrg|thSpPlatIncStage|thSpPlatIncYear|TimeBlns|TimeStat|TipComp|TipDiagn|TipGrDop|TIPOBJ|TipOtg|TipPut|TipStop|TipTex|TipUsl|TipWrk|TitleDoc|TMATREM|tmClMrpm|TmDocNal|tmInpm|TmInterv|tmOutIzm|tmOutKlm|tmOutm|tmOutRzm|TMP12|TMP12Pr|TmpATP|TmpATPInfo|tmpAver|tmpAverCalc|tmpAvlInfom|tmpCalc|tmpCompOth|TmpFact|tmpFzAv|tmpGrN|tmpHozO|tmpIzgPF|TmpKatalog|tmpKPric|TmpKutMC|tmpLink|tmpMnRep|tmpmnzk|TmpMonth|tmpMove|TmpNaklOst|TmpNDop|TmpNorm|TmpNormP|tmpObj|TmpOperSp|tmpOtZakup|tmpPickC|TmpPlPor|tmpPodrL|TmpPotr|TmpPotrMK|tmpPrice|tmpProd|tmpReeN|TmpReePlP|TmpSaldo1|TmpSaldo2|TmpSaldo3|tmpSebC|TmpSklMol|tmpSldo|tmpSmPr|tmpSpFz|tmpSpKau|TmpSpNal|TmpSpNrm|TmpSpOrd|TmpSpSupply|tmpSpUniCalc|tmpSumBudj|TmpTovRp|tmpUniCalc|tmpVProd|tmp_NACTMPP|tmp_Pometki|Tmp_Sopr|tmp_Tab|tmp_TabN|Tmp_Zn1|Tmp_Zn2|tmQValue|tmRezQl|tmValRez|Tm_Graph|TNalF|TNP|Tobot|TopAPlan|TopFPlan|Toplivo|ToRozn|ToSend|TPartyDS|TRABREM|TranDop|TranInf|Transp|TreeNames|TreeNode|TreeSpec|TreeSums|TRequest|TRLfix|TRLmem|TRLrel|TrPeriod|TrPotr|TrStv|tSctDvDS|TsKachvo|tSmDvDS|TTNdoc|TTN_AVTO|TuneDef|TuneGR|TuneGrUs|TuneHTML|TuneLinkUser|TuneList|TuneParty|TunePartyVal|TuneRgh|TuneVal|TuneVisibleField|TVEDREM|TxEntFld|TxoDump|TypeKR|TypeMC|TypePr|TypeSeal|TypeUrov|TypeZatr|TypPrice|TypStroy|UchRabPl|UchRabRm|UchRabVr|Uder|UderMP|UkazZadel|UksArea|uksArticle|UksAxis|UKSCity|UKSConsignee|UKSDeliveryMode|UksHide|uksInfo|UKSKoeff|UKSKoeffValue|UksMTOImp|UKSRayon|UKSRegion|UKSRouteLot|UKSSSOAlbumPart|UKSState|UKSSupplyMode|UksTabel|uksTree|uksValue|UksValues|UksValuesDtl|Uncomp|UniHier|UnitExecIndex|UnitRes|UOWrkTabel|UrgentM|UsagePF|UserAccess|UserArea|UserDeskRep|UserLaws|UserList|UserPapka|UserPermit|UserPriority|UserRights|UsersDoc|UsersDocPD|UserSets|UsersRec|UserStations|UseTune|UsTmPnRt|Vacancy|VacationAlg|Vacations|VacationStS|Vagon|ValCap|VALindex|ValKontr|ValNac|ValNal|ValPokaz|ValSpMnp|ValTest|Valut|ValutDoc|ValZar|VarAnKol|VarCalc|VARIANCE|VariantZam|VariaPl|VariaSet|VarPlan|VarStat|VClass|vData|VDetail|VedDeponir|VedGroup|VedSb|Veksl|VekslOp|vEntFld|vEntityDef|VersStr|VestedLics|vEvents|vFieldDef|vFieldLinks|vFilter|vGroupsDef|VHier1|VHier2|VHier3|VHier4|VHier5|VHier6|VHier7|VHier8|VHier9|VHierarchy|VidContr|VidGSM|VidInfer|VidKAUOs|VidKAUPr|VidMove|VidNorma|VIDOBJ|VidOrg|VidOst|VIDREM|VIDREMIN|VidStroy|VidZacheta|ViewCalc|ViewSloj|vIndexesDef|VisaDrv|VJoinFlt|VKCompPF|VLevelsDef|vLocks|vmDP|vMethods|vmItgS|vmMcUslS|vmOA|vmOwnOwn|vmSpDGP|vmSpDP|vmSpOAM|vmSpOAO|vmSpSGP|vmSpSP|VolProd|Volume|VolUslg|vPlan|VPr|VPrKat|VPrSp|vRightFlt|vRights|vRoles|VrOperm|vSegmentLinks|vSegmentsDef|vUserFlt|vUserRoles|vVersion|VVSopr|VvStroy|vXUsers|WayAccou|WayDoc|WayItem|WayMove|WayPath|WayScore|Waywps|WhiteBound|WhiteBoundField|WhiteConst|WhiteField|WhitePonce|WhiteProst|WhiteTable|WoodMetFelling|WoodMetUth|WoodShortName|WoodSpView|WoodVidFelling|WoodVidUse|WorkContracts|WorkCycle|WORKDAYS|WorkPattern|WorkPCon|WorkPeriod|WorkPl|WorkPlaces|WorkPlGroup|Workstations|WorkTheme|WrkFndPE_Hdr|WrkFndPE_Sp|X$ACTIVEUSERS|X$ATTR|X$FIELDS|X$FILES|X$INDEXES|X$JOURNAL|X$JOURNALCONFIG|x$ObjRel|x$ObjTab|X$OWNERS|X$REGISTERTABLES|X$RELATE|X$RESOURCES|X$RIGHTS|X$SEMAFORS|X$SURRKEYS|X$USERS|XarPred|XChangeMC|XChangeMC4Izd|XLTempl|XLTField|XLTView|XLTViewFld|XMLmeta|YearSumsAfter|YearSumsBefore|ZachetObyaz|Zakaz|ZakazMnf|ZakLnZak|ZakNorm|ZakVol|ZamKAU|ZamTab|ZarDoc|ZarOper|ZarplProject|ZarServer|ZarServerLimit|ZarSignal|ZarTasks|Zar_User|ZatrPereoc|ZBankCard|ZKauVed|ZpmSopr)\\b"
+				}
+			]
+		}
+	},
+	"scopeName": "source.vip"
+}
