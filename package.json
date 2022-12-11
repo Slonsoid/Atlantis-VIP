@@ -1,0 +1,34 @@
+{
+    "name": "vip",
+    "displayName": "Atlantis-VIP-VSCode",
+    "description": "Atlantis VIP - language for ERP Galaktika",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.60.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "vip",
+            "aliases": ["Atlantis VIP", "vip"],
+            "extensions": [".vip",".prj",".vih",".inc",".frm",".vpp",".vil",".obj",".mnu",".gcd",".ccm",".csc",".tbl",".lih",".pan"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "vip",
+            "scopeName": "source.vip",
+            "path": "./syntaxes/VIP.tmLanguage.json"
+        }],
+        "snippets": [{
+            "language": "vip",
+            "path": "./snippets/vip_snippets.json"
+        }],
+        "VIP": {
+            "customData": [
+                "./vip.vip-data.json"
+            ]
+        }
+    }
+}
