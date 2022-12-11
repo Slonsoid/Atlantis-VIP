@@ -1,0 +1,21 @@
+{
+    "table struct":
+    {
+        "prefix": "$vip_table",
+        "description": "Добавляем описание таблицы",
+        "body": [
+            "Table struct $1",
+            "(",
+            "$2",
+            ")"
+        ]
+    },
+    "interface":
+    {
+        "prefix": "$vip_i",
+        "description": "Создание VIP интерфейса",
+        "body": [
+            "interface $1"
+        ]
+    }
+}
