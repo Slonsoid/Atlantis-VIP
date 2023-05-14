@@ -3,6 +3,7 @@
     "displayName": "Atlantis-VIP-VSCode",
     "description": "Atlantis VIP - language for ERP Galaktika",
     "version": "0.0.1",
+    "pricing": "Free",
     "engines": {
         "vscode": "^1.60.0"
     },
