@@ -70,7 +70,7 @@
 			]
 		},
 		"strings": {
-			"name": "string.quote.single.vip",
+			"name": "string.quoted.double.vip",
 			"begin": "'",
 			"end": "'",
 			"patterns": [
@@ -129,7 +129,7 @@
 				},
 				{
 					"name": "entity.name.type.vip",
-					"match": "\\b(?:\\:)(?i)(byte|word|integer|longInt|comp|single|double|number|numeric|decimal|single|money|lVar|boolean|logical|char|wideChar|string|wideString|date|time|_DateTime|variant|positionHandle|void)\\b"
+					"match": "\\b\\s*(?:\\:)\\s*(?i)(byte|word|integer|longInt|comp|single|double|number|numeric|decimal|single|money|lVar|boolean|logical|char|wideChar|string|wideString|date|time|_DateTime|variant|positionHandle|void)\\b"
 				},
 				{
 					"name": "entity.name.type.vip",
