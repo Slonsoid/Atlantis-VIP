@@ -6,12 +6,17 @@
     "publisher": "Slonsoid",
     "license": "SEE LICENSE IN LICENSE",
     "pricing": "Free",
-    "engines": {
-        "vscode": "^1.60.0"
+    "homepage": "https://github.com/Slonsoid/Atlantis-VIP/README.md",
+    "bugs": {
+        "url": "https://github.com/Slonsoid/Atlantis-VIP/issues",
+        "email": "support@slonsoid.com"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/Slonsoid/Atlantis-VIP"
+        "url": "https://github.com/Slonsoid/Atlantis-VIP.git"
+    },
+    "engines": {
+        "vscode": "^1.60.0"
     },
     "categories": [
         "Programming Languages"
