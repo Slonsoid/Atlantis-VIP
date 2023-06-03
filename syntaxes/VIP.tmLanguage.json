@@ -72,13 +72,7 @@
 		"strings": {
 			"name": "string.quoted.double.vip",
 			"begin": "'",
-			"end": "'",
-			"patterns": [
-				{
-					"name": "constant.character.escape.vip",
-					"match": "\\\\."
-				}
-			]
+			"end": "'"
 		},
 		"comments":{
 			"patterns": [

@@ -33,7 +33,6 @@ market: [<img src ="https://code.visualstudio.com/favicon.ico" width="16" height
     - прямой SQL
     - fastreport
     - excel чтение/запись
-- Исключить ошибочное экранирвоание строк
 - Найти решение для наследования (idk)
     - стандартных функций
     - сущностей внутри интерфейса
@@ -55,4 +54,5 @@ market: [<img src ="https://code.visualstudio.com/favicon.ico" width="16" height
     - типы переменных и строки
 - 0.0.6
     - реадми
-
+- 0.0.7
+    - fix экранирования строк
