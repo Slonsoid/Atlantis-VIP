@@ -1,21 +1,73 @@
 {
+    "vip interface":
+    {
+        "prefix": "$vip_iParam",
+        "description": "создание VIP интерфейса для запуска с параметрами",
+        "body": [
+            "interface $TM_FILENAME_BASE} '${1:Название интерфейса}' EscClose;$0",
+            "show at (1, 1, 32, 7);",
+            "",
+            "var",
+            "  _nRec :comp;",
+            "  _MODE :longint;",
+            " dat :date;",
+            "",
+            "table struct tbl_$TM_FILENAME_BASE (",
+            "  rec :comp,",
+            "  nam :string,",
+            "  kol :double",
+            ") with index (",
+            "  i1 = rec",
+            ");",
+            "",
+            "create view as select * from tbl_$TM_FILENAME_BASE;",
+            "",
+            "parameters _nRec, _MODE;",
+            "",
+            "screen s1 '$1';",
+            "show at (1, 1, 30, 5)",
+            "fields",
+            "  _nRec :noprotect;",
+            "  dat :noprotect,pickbutton;",
+            "  _MODE :noprotect;",
+            "buttons",
+            "  cmDo;",
+            "",
+            "  <<",
+            "",
+            "  нрек:  .@@@@@@@@@@@@@@@@@@@@",
+            "  дата:  .@@@@@@@@@@@@@@@@@@@@",
+            "  MODE:  .@@@@@@@@@@@@@@@@@@@@",
+            "         <.     Do!     .>     ",
+            "  `                        `",
+            "",
+            "  >>",
+            "end;",
+            "",
+            "function f_do():string;{",
+            "  result:='done.'",
+            "}",
+            "",
+            "handleevent",
+            "cmInit:{",
+            "}",
+            "",
+            "cmDo:{",
+            "  Message(f_do());",
+            "}",
+            "end;",
+            "end."
+        ]
+    },
     "table struct":
     {
         "prefix": "$vip_table",
-        "description": "Добавляем описание таблицы",
+        "description": "добавляем описание таблицы",
         "body": [
             "Table struct $1",
             "(",
             "$2",
             ")"
-        ]
-    },
-    "interface":
-    {
-        "prefix": "$vip_i",
-        "description": "Создание VIP интерфейса",
-        "body": [
-            "interface $1"
         ]
     }
 }
