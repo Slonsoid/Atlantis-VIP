@@ -25,13 +25,13 @@ market: [<img src ="https://code.visualstudio.com/favicon.ico" width="16" height
     - модальные окна
     - структура таблицы
     - скрин и браузер
+    - прямой SQL
 <br><br>
 
 ---
 ### **TO DO**
 
 - Сниппеты:
-    - прямой SQL
     - fastreport
     - excel чтение/запись
 - Найти решение для наследования (idk)
