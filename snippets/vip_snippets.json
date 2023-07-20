@@ -173,6 +173,38 @@
             "end."
         ]
     },
+    "window_modal":
+    {
+        "prefix": "$vip_window",
+        "description": "модальное окно",
+        "body": [
+            "//=======================================================",
+            "//          $1 <<<<",
+            "//=======================================================",
+            "window win_$1 'Выбор $1' (,,sci1EnEsc),gray,dialog,doAccept;",
+            "show(,,100,15);",
+            "BROWSE $1_BROWSE(,,sci1EscIns);",
+            "table $1_tbl;",
+            "fields",
+            "$1_tbl.number 'Номер' :[20],protect;",
+            "$1_tbl.name 'Наименование' :[60],protect;",
+            "end;",
+            "WindowEvent win_$1;",
+            "  cminit:{}",
+            "  cmDefault:{",
+            "    Message('Выбрали : ' + $1_tbl.name + ' (' + $1_tbl.nRec + ')')",
+            "  } ",
+            "  end;",
+            "end;",
+            "//=======================================================",
+            "//          >>>> $1",
+            "//=======================================================",
+            "",
+            "procedure runWindow$1();{ ",
+            "  RunWindowModal(win_$1);",
+            "}"
+        ]
+    },
     "table struct":
     {
         "prefix": "$vip_table",
