@@ -220,5 +220,48 @@
             "  i2 = nn + mcName",
             ");"
         ]
+    },
+    "screen":
+    {
+        "prefix": "$vip_screen",
+        "description": "screen",
+        "body": [
+            "Screen s$1;",
+            "show at (1,1,169,8) fixed_x;",
+            "fields",
+            "  dateStart, noprotect, PickButton;",
+            "  dateEnd, noprotect, PickButton;",
+            "  isShowDone, noprotect;",
+            "buttons",
+            "  cmGo;",
+            "  cmCancel;",
+            "",
+            "<<",
+            "      Выбор периода",
+            "      с .@@@@@@@@@@@     по .@@@@@@@@@@@",
+            "      `                                        `",
+            "      [.] Выполненные`",
+            "",
+            "      <.  Выгрузить  .>   <.   Закрыть   .>",
+            "`                                       `   ",
+            ">>",
+            "end;"
+        ]
+    },
+    "browser":
+    {
+        "prefix": "$vip_browser",
+        "description": "browser",
+        "body": [
+            "Browse b$1;",
+            "  show at(1,9,169,169)",
+            "  table $1_tbl;",
+            "  fields {Font= {backColor = if($1_tbl.cRec != comp(0), ColorSysGray, ColorSysWhite);",
+            "    Color = if($1_tbl.cRec != comp(0), ColorSysWhite, ColorSysBlack);}};",
+            "  $1_tbl.mcName 'МЦ' :[30],protect;",
+            "  $1_tbl.kol 'Кол-во' :[5,2],protect;",
+            "  $1_tbl.status 'Статус' :[15],protect;",
+            "end;"
+        ]
     }
 }
