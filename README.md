@@ -23,13 +23,13 @@ market: [<img src ="https://code.visualstudio.com/favicon.ico" width="16" height
 - Сниппеты:
     - vip-интерфейс
     - модальные окна
+    - структура таблицы
 <br><br>
 
 ---
 ### **TO DO**
 
 - Сниппеты:
-    - структура таблицы
     - скрин и браузер
     - прямой SQL
     - fastreport

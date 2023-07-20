@@ -173,7 +173,7 @@
             "end."
         ]
     },
-    "window_modal":
+    "window modal":
     {
         "prefix": "$vip_window",
         "description": "модальное окно",
@@ -208,12 +208,17 @@
     "table struct":
     {
         "prefix": "$vip_table",
-        "description": "добавляем описание таблицы",
+        "description": "локальная таблица",
         "body": [
-            "Table struct $1",
-            "(",
-            "$2",
-            ")"
+            "Table struct $1_tbl (",
+            "  nn :longint,",
+            "  nRec :comp,",
+            "  mcRec :comp,",
+            "  mcName :string",
+            ") with index (",
+            "  i1 = nRec,",
+            "  i2 = nn + mcName",
+            ");"
         ]
     }
 }
