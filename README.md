@@ -58,3 +58,5 @@ market: [<img src ="https://code.visualstudio.com/favicon.ico" width="16" height
     - fix экранирования строк
 - 0.0.8
     - обновлен список таблиц
+- 0.1.0
+    - стабильная вресия
